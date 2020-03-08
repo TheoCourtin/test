@@ -18,17 +18,27 @@ Autre outils et technologies utilisés :
 ### Lancer l'application
 Cloner le dépôt
 
-then to grab the dependencies run
+Installation des dépendances :
 
 `npm install`
 
-make sure MongoDB is running from your MongoDB directory with
+
+
+Lancer en premier MongoDB dossier avec
 
 `mongod`
 
-`npm run dev`
+Lancer le serveur en JS dans le dossier node-token-based-authentication-master:
 
-navigate to: http://localhost:8080
+'node server.js'
+
+Puis lancer Angular :
+
+'ng serve' ou 'ng s'
+
+
+
+
 
 
 
