@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      Suppression utilisateur
+    </div>
+  </div>
+    <div class="row">
+        <div class="inner-main" *ngIf="currentUser">
+            <h2 class="mb-4">Suppression utilisateur</h2>
+            <input type="hidden" value="{{currentUser._id}}"/>
+            <p><strong>Nom:</strong> {{currentUser.name}} </p>
+            <p><strong>Mail:</strong> {{currentUser.email}}</p>
+            <button class="btn btn-outline-danger"(click)="confirmDelete()">Confirmation suppression</button>
+            <button class="btn btn-outline-warning" (click)="annuler()">Annuler</button>
+          </div>
+      </div>
+
+  </div>

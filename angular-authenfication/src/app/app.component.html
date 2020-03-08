@@ -1,0 +1,23 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm fixed-top">
+
+  <h5 class="my-0 mr-md-auto font-weight-normal">Carte du Coronavirus</h5>
+
+
+  <div *ngIf="!isOnUserProfile()">
+    <a mat-button *ngIf="isAuthentificate()" class="btn btn-outline-primary" routerLinkActive="active" (click)="redirectMainPage()">Profil utilisateur </a>
+  </div>
+
+  <div *ngIf="!isOnMap()">
+    <a mat-button *ngIf="isAuthentificate()" class="btn btn-outline-info" routerLinkActive="active" routerLink="/map">Carte</a>
+  </div>
+
+  <div *ngIf="!isAuthentificate()">
+    <a *ngIf="!isOnLogging()" class="p-2 text-dark float-right" routerLinkActive="active" routerLink="/login">Connexion</a>
+    <a *ngIf="!isOnIncription()" class="btn btn-outline-primary" routerLinkActive="active" routerLinkActive="active" routerLink="/signup">Inscription</a>
+  </div>
+
+
+  <button (click)="logout()" *ngIf="isAuthentificate()" type="button" class="btn btn-danger">Deconnexion</button>
+</div>
+
+<router-outlet></router-outlet>
