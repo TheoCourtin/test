@@ -22,19 +22,21 @@ Installation des dépendances :
 
 `npm install`
 
+Avant de lancer la base MongoDB, il faut insérer le fichier confirmed.json dans MongoDB collection covid :
 
+Le fichier peut-être récupérer à l'adresse suivante : `https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv`
 
-Lancer en premier MongoDB dossier avec
+Lancer en premier MongoDB :
 
 `mongod`
 
 Lancer le serveur en JS dans le dossier node-token-based-authentication-master:
 
-'node server.js'
+`node server.js`
 
 Puis lancer Angular :
 
-'ng serve' ou 'ng s'
+`ng serve` ou `ng s`
 
 
 
