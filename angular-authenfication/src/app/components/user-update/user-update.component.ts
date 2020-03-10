@@ -27,7 +27,7 @@ export class UserUpdateComponent implements OnInit {
       name: [''],
       email: [''],
       password: ['']
-    })
+    });
     let id = this.actRoute.snapshot.paramMap.get('id');
     this.authService.getUserProfile(id).subscribe( res => {
          this.currentUser = res.msg;

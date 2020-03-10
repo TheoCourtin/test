@@ -14,6 +14,7 @@ import { UserDeleteComponent } from './components/user-delete/user-delete.compon
 import { UserUpdateComponent } from './components/user-update/user-update.component';
 import { MapComponent } from './components/map/map.component';
 import { MarkersService } from './services/markers.service';
+import { AjoutPersonneCarteComponent } from './components/ajout-personne-carte/ajout-personne-carte.component';
 
 
 
@@ -26,6 +27,7 @@ import { MarkersService } from './services/markers.service';
     UserDeleteComponent,
     UserUpdateComponent,
     MapComponent,
+    AjoutPersonneCarteComponent,
 
 
   ],

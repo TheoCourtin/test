@@ -22,7 +22,7 @@ export class MapComponent implements AfterViewInit, OnInit {
     public router: Router,
     private http: HttpClient,
     private markersService: MarkersService) {
-    this.coords = new Position(48.858053, 2.294289); //magic number (Effeil)
+    this.coords = new Position(48.858053, 2.294289); // magic number (Effeil)
   }
 
   ngOnInit() {
@@ -35,14 +35,16 @@ export class MapComponent implements AfterViewInit, OnInit {
 
   private initMap(): void {
     this.getPosition().then(coords => {
-      console.log("accept cooord");
+      console.log('accept cooord');
       this.coords = new Position(coords.lat, coords.lng);
       this.initPosition();
       this.markersService.makeVillesMarkers(this.map);
+      this.markersService.makePersonMarkers(this.map);
     }).catch(err => {
-      console.log("Can't find position");
+      console.log('Can\'t find position');
       this.initPosition();
       this.markersService.makeVillesMarkers(this.map);
+      this.markersService.makePersonMarkers(this.map);
     });
   }
 

@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 const router = express.Router();
 const userSchema = require("../models/User");
 const covidSchema = require("../models/Covid");
+const personneSchema = require ("../models/Personne");
 const authorize = require("../middlewares/auth");
 const { check, validationResult } = require('express-validator');
 
@@ -21,7 +22,7 @@ router.post("/register-user",
         check('email', 'Email is required')
             .not()
             .isEmpty(),
-        check('password', 'Password should be between 5 to 8 characters long')
+        check('password', 'Password should be between 4 to 8 characters long')
             .not()
             .isEmpty()
             .isLength({ min: 4, max: 16 })
@@ -55,6 +56,39 @@ router.post("/register-user",
             });
         }
     });
+// Personne inscription sur la carte
+router.post("/ajout-personne-carte",
+        [
+            check('name').not().isEmpty().isLength({ min: 3, max: 20}).withMessage('Name must be atleast 3 characters long'),
+            check('long').not().isEmpty(),
+            check('lati').not().isEmpty()
+        ],
+        (req, res, next )=> {
+            const errors = validationResult(req);
+            console.log(req.body);
+
+            if (!errors.isEmpty()) {
+                return res.status(422).jsonp(errors.array());
+            }
+            else {
+                const personne = new personneSchema({
+                    name: req.body.name,
+                    long: req.body.long,
+                    lati: req.body.lati,
+                });
+                      personne.save().then((response) => {
+                        res.status(201).json({
+                            message: "Personne successfully created!",
+                            result: response
+                        });
+                    }).catch(error => {
+                        res.status(500).json({
+                            error: error
+                        });
+                    });
+                }});
+
+
 
 // Covid map
 router.route("/map").get((req, res) => {
@@ -116,7 +150,33 @@ router.route('/').get((req, res) => {
             res.status(200).json(response)
         }
     })
-})
+});
+
+router.route("/ajout-personne-map").get((req, res) => {
+    personneSchema.find()
+        .then(personne => {
+            if (!personne) {
+                return res.status(204).json({
+                    message: "No data found"
+                });
+            } else {
+                return res.status(200).json({message: personne});
+                console.log(personne);
+            }
+        })
+        .catch(err => res.status(500).json({message: err}));
+});
+
+// // Get Personne
+// router.route('/').get((req, res) => {
+//     personneSchema.find((error, response) => {
+//         if (error) {
+//             return next(error)
+//         } else {
+//             res.status(200).json(response)
+//         }
+//     })
+// })
 
 // Get Single User
 router.route('/user-profile/:id').get(authorize, (req, res, next) => {
@@ -129,7 +189,7 @@ router.route('/user-profile/:id').get(authorize, (req, res, next) => {
             })
         }
     })
-})
+});
 
 // Update User
 router.route('/update-user/:id').put((req, res, next) => {
@@ -137,15 +197,15 @@ router.route('/update-user/:id').put((req, res, next) => {
         $set: req.body
     }, (error, data) => {
         if (error) {
-            return next(error)
+            return next(error);
             console.log(error)
 
         } else {
-            res.json(data)
+            res.json(data);
             console.log('User successfully updated!');
         }
     })
-})
+});
 
 
 // Delete User
@@ -159,6 +219,6 @@ router.route('/delete-user/:id').delete((req, res, next) => {
             })
         }
     })
-})
+});
 
 module.exports = router;

@@ -13,7 +13,7 @@ export class AppComponent{
   constructor(public authService: AuthService, public actRouter: ActivatedRoute, public router: Router) { }
 
   logout() {
-    this.authService.doLogout()
+    this.authService.doLogout();
   }
 
   isAuthentificate(): boolean {
@@ -40,5 +40,10 @@ export class AppComponent{
   isOnMap(): boolean
   {
     return this.actRouter.snapshot['_routerState'].url === '/map';
+  }
+
+  isOnPerson(): boolean
+  {
+    return this.actRouter.snapshot['_routerState'].url === '/ajout-personne-carte';
   }
 }

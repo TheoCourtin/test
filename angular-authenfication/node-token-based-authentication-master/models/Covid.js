@@ -17,7 +17,7 @@ let covidSchema = new Schema({
     }
 }, {
     collection: 'covid'
-})
+});
 
 
-module.exports = mongoose.model('Covid', covidSchema)
+module.exports = mongoose.model('Covid', covidSchema);

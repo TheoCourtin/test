@@ -18,7 +18,7 @@ mongoose.connect(dbConfig.db, {
   error => {
     console.log("Database can't be connected: " + error)
   }
-)
+);
 
 // Remvoe MongoDB warning error
 mongoose.set('useCreateIndex', true);
@@ -35,13 +35,13 @@ app.use(cors());
 // Serve static resources
 app.use('/public', express.static('public'));
 
-app.use('/api', api)
+app.use('/api', api);
 
 // Define PORT
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
   console.log('Connected to port ' + port)
-})
+});
 
 // Express error handling
 app.use((req, res, next) => {

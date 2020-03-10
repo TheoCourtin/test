@@ -16,8 +16,13 @@
     <a *ngIf="!isOnIncription()" class="btn btn-outline-primary" routerLinkActive="active" routerLinkActive="active" routerLink="/signup">Inscription</a>
   </div>
 
+  <div *ngIf="!isOnPerson()">
+    <button *ngIf="isAuthentificate()" type="button" class="btn btn-secondary" routerLinkActive="active" routerLinkActive="active" routerLink="/ajout-personne-carte" >Déclaration d'une personne</button>
+  </div>
 
-  <button (click)="logout()" *ngIf="isAuthentificate()" type="button" class="btn btn-danger">Deconnexion</button>
+  <button (click)="logout()" *ngIf="isAuthentificate()" type="button" class="btn btn-danger">Déconnexion</button>
+
+
 </div>
 
 <router-outlet></router-outlet>

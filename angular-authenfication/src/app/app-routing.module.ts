@@ -7,7 +7,8 @@ import { UserUpdateComponent } from './components/user-update/user-update.compon
 import { UserDeleteComponent } from './components/user-delete/user-delete.component';
 import { MapComponent } from './components/map/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { AuthGuard } from "./shared/auth.guard";
+import { AuthGuard } from './shared/auth.guard';
+import { AjoutPersonneCarteComponent } from './components/ajout-personne-carte/ajout-personne-carte.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'user-update/:id', component: UserUpdateComponent, canActivate: [AuthGuard]},
   { path: 'user-delete/:id', component: UserDeleteComponent, canActivate: [AuthGuard]},
   { path: 'map', component: MapComponent },
+  { path: 'ajout-personne-carte', component: AjoutPersonneCarteComponent },
   { path: '**', redirectTo: '/login' }
 ];
 
