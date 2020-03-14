@@ -1,0 +1,23 @@
+<div class="auth-wrapper">
+  <div class="card">
+    <div class="card-body">
+      Inscription
+    </div>
+  </div>
+  <form class="form-signup" [formGroup]="signupForm" (ngSubmit)="registerUser()">
+    <h3 class="h3 mb-3 font-weight-normal text-center">Inscription</h3>
+    <div class="form-group">
+      <label>Nom</label>
+      <input type="text" class="form-control" formControlName="name" placeholder="Entrer votre nom" required>
+    </div>
+    <div class="form-group">
+      <label>Mail</label>
+      <input type="email" class="form-control" formControlName="email" placeholder="courriel" required>
+    </div>
+    <div class="form-group">
+      <label>Mot de passe</label>
+      <input type="password" class="form-control" formControlName="password" placeholder="mot de passe" required>
+    </div>
+    <button type="submit" class="btn btn-block btn-primary">Inscription</button>
+  </form>
+</div>
