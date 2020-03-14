@@ -15,24 +15,24 @@ Autre outils et technologies utilisés :
 * Bcryptjs - Chiffrer les mots de passes
 * CORS - 
 
-### Lancer l'application
+### Lancer l'application Back-end
 Cloner le dépôt
 
 Installation des dépendances :
 
 `npm install`
 
-Avant de lancer la base MongoDB, il faut insérer le fichier confirmed.json dans MongoDB collection covid :
-
-Le fichier peut-être récupérer à l'adresse suivante : `https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv`
+Le fichier des cas confirmés peut-être récupérer à l'adresse suivante : `https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv`
 
 Lancer en premier MongoDB :
 
 `mongod`
 
-Lancer le serveur en JS dans le dossier node-token-based-authentication-master:
+Lancer le serveur en JS dans le dossier server:
 
 `node server.js`
+
+### Lancer application Front-end
 
 Puis lancer Angular :
 
